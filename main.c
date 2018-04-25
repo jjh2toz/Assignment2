@@ -97,14 +97,15 @@ void timecmp(void)
 {
 	if (time1->tm_hour > time2->tm_hour)
 		printf("text2 is earlier than text2\n");
-	else if (time1->tm_hour < time2->tm-hour)
+	else if (time1->tm_hour < time2->tm_hour)
 		printf("text1 is earlier than text1\n");
 	else
 	{
 		if(time1->tm_min > time2->tm_min)
 			printf("text2 is earlier than text2\n");
-		else if(time->tm_min < time2->tm_min)
+		else if(time1->tm_min < time2->tm_min)
 			printf("text1 is earlier than text1\n");
 		else
 			printf("text1 and text2 is modified at same time\n");
+	}
 }

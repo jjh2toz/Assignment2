@@ -58,7 +58,7 @@ void sizecmp(void)
 	printf("text size: ");
 	if ( stat1.st_size > stat2.st_size )
 		printf("text1's size is bigger than text2's\n");
-	else if ( stat1.st_size = stat2.st_size )
+	else if ( stat1.st_size == stat2.st_size )
    		printf("text sizes are equal\n");
 	else if ( stat1.st_size < stat2.st_size )
    		printf("text2's size is bigger than text1's\n");
@@ -70,7 +70,7 @@ void blockcmp(void)
 	printf("blocks number: ");
 	if ( stat1.st_blocks > stat2.st_blocks )
 		printf("text1 is bigger\n");
-	else if ( stat1.st_blocks = stat2.st_blocks )
+	else if ( stat1.st_blocks == stat2.st_blocks )
 		printf("number of blocks are equal\n");
 	else if ( stat1.st_blocks < stat2.st_blocks )
 		printf("text2 is bigger\n");

@@ -82,12 +82,14 @@ void datecmp(void)
         else if (time1->tm_mon+1 < time2->tm_mon+1)
                 printf("text1 is early\n");
         else if (time1->tm_mday = time2->tm_mday)
-                if(time1->tm_mday > time2->tm_mday)
+        {
+          if(time1->tm_mday > time2->tm_mday)
                         printf("text2 is early\n");
                 else  if(time1->tm_mday > time2->tm_mday)
                         printf("text1 is early\n");
                 else  if(time1->tm_mday < time2->tm_mday)
                         printf("same text\n");
+        }
 }
 
 //두 개의 파일 수정 시간을 비교하는 함수 작성

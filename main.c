@@ -44,6 +44,7 @@ void filestat2(void)
 void filetime1(void)
 {
 	time1 = localtime(&stat1.st_mtime);
+
 }
 
 //파일 2의 시간 정보를 가져오는 함수 작성
@@ -79,16 +80,22 @@ void blockcmp(void)
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
 void datecmp(void)
 {
+	filetime1();
+	int mon1=time1->tm_mon+1;
+	int day1=time1->tm_mday;
+	filetime2();
+	int mon2=time2->tm_mon+1;
+	int day2=time2->tm_mday;
 	printf("date: ");
-	if (time1->tm_mon+1 > time2->tm_mon+1)
+	if (mon1 > mon2)
                 printf("text2 is early\n");
-        else if (time1->tm_mon+1 < time2->tm_mon+1)
+        else if (mon1 < mon2)
                 printf("text1 is early\n");
-        else 
+        else
 	{
-          if(time1->tm_mday > time2->tm_mday)
+          if(day1 > day2)
 		printf("text2 is early\n");
-          else  if(time1->tm_mday < time2->tm_mday)
+          else  if(day1 < day2)
 		printf("text1 is early\n");
           else
 		printf("same date\n");
@@ -98,16 +105,23 @@ void datecmp(void)
 //두 개의 파일 수정 시간을 비교하는 함수 작성
 void timecmp(void)
 {
+	filetime1();
+	int hour1=time1->tm_hour;
+	int min1=time1->tm_min;
+	filetime2();
+	int hour2=time2->tm_hour;
+	int min2=time2->tm_min;
+
 	printf("time: ");
-	if (time1->tm_hour > time2->tm_hour)
+	if (hour1 > hour2)
 		printf("text2 is early\n");
-	else if (time1->tm_hour < time2->tm_hour)
+	else if (hour1 < hour2)
 		printf("text1 is early\n");
 	else
 	{
-		if(time1->tm_min > time2->tm_min)
+		if(min1 > min2)
 			printf("text2 is early\n");
-		else if(time1->tm_min < time2->tm_min)
+		else if(min1 < min2)
 			printf("text1 is early\n");
 		else
 			printf("same time\n");

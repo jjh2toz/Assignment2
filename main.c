@@ -84,14 +84,14 @@ void datecmp(void)
                 printf("text2 is early\n");
         else if (time1->tm_mon+1 < time2->tm_mon+1)
                 printf("text1 is early\n");
-        else if (time1->tm_mday = time2->tm_mday)
-        {
+        else 
+	{
           if(time1->tm_mday > time2->tm_mday)
-                        printf("text2 is early\n");
-                else  if(time1->tm_mday > time2->tm_mday)
-                        printf("text1 is early\n");
-                else  if(time1->tm_mday < time2->tm_mday)
-                        printf("same date\n");
+		printf("text2 is early\n");
+          else  if(time1->tm_mday < time2->tm_mday)
+		printf("text1 is early\n");
+          else
+		printf("same date\n");
         }
 }
 

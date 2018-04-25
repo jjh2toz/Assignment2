@@ -83,11 +83,9 @@ void datecmp(void)
 	filetime1();
 	int mon1=time1->tm_mon+1;
 	int day1=time1->tm_mday;
-	printf("%d\n%d\n",mon1,day1);
 	filetime2();
 	int mon2=time2->tm_mon+1;
 	int day2=time2->tm_mday;
-	printf("%d\n%d\n",mon2,day2);
 	printf("date: ");
 	if (mon1 > mon2)
                 printf("text2 is early\n");
@@ -110,11 +108,9 @@ void timecmp(void)
 	filetime1();
 	int hour1=time1->tm_hour;
 	int min1=time1->tm_min;
-	printf("%d\n%d\n",hour1,min1);
 	filetime2();
 	int hour2=time2->tm_hour;
 	int min2=time2->tm_min;
-	printf("%d\n%d\n",hour2,min2);
 
 	printf("time: ");
 	if (hour1 > hour2)

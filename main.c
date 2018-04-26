@@ -5,7 +5,8 @@
 #include <time.h>
 
 struct stat stat1, stat2;
-struct tm *time1, *time2;
+struct tm time1, time2;
+struct tm * temp;
 
 void filestat1(void);
 void filestat2(void);
@@ -43,13 +44,16 @@ void filestat2(void)
 //파일 1의 시간 정보를 가져오는 함수 작성
 void filetime1(void)
 {
-	time1 = localtime(&stat1.st_mtime);
+	
+	temp = localtime(&stat1.st_mtime);
+	time1 = *temp;
 }
 
 //파일 2의 시간 정보를 가져오는 함수 작성
 void filetime2(void)
 {
-	time2 = localtime(&stat2.st_mtime);
+	temp = localtime(&stat2.st_mtime);
+	time2 = *temp;
 }
 
 //두 개의 파일 크기를 비교하는 함수 작성
@@ -80,15 +84,15 @@ void blockcmp(void)
 void datecmp(void)
 {
 	printf("date: ");
-	if (time1->tm_mon+1 > time2->tm_mon+1)
+	if (time1.tm_mon+1 > time2.tm_mon+1)
                 printf("text2 is early\n");
-        else if (time1->tm_mon+1 < time2->tm_mon+1)
+        else if (time1.tm_mon+1 < time2.tm_mon+1)
                 printf("text1 is early\n");
         else 
 	{
-          if(time1->tm_mday > time2->tm_mday)
+          if(time1.tm_mday > time2.tm_mday)
 		printf("text2 is early\n");
-          else  if(time1->tm_mday < time2->tm_mday)
+          else  if(time1.tm_mday < time2.tm_mday)
 		printf("text1 is early\n");
           else
 		printf("same date\n");
@@ -99,15 +103,15 @@ void datecmp(void)
 void timecmp(void)
 {
 	printf("time: ");
-	if (time1->tm_hour > time2->tm_hour)
+	if (time1.tm_hour > time2.tm_hour)
 		printf("text2 is early\n");
-	else if (time1->tm_hour < time2->tm_hour)
+	else if (time1.tm_hour < time2.tm_hour)
 		printf("text1 is early\n");
 	else
 	{
-		if(time1->tm_min > time2->tm_min)
+		if(time1.tm_min > time2.tm_min)
 			printf("text2 is early\n");
-		else if(time1->tm_min < time2->tm_min)
+		else if(time1.tm_min < time2.tm_min)
 			printf("text1 is early\n");
 		else
 			printf("same time\n");
